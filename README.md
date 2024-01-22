@@ -4,14 +4,14 @@ The Sardine Simulator is a program that simulates the flocking behavior of sardi
 ![Screenshot](Assets/screenshot.jpg)
 
 ## Control
-WASD - movement
-Mouse - move camera
-B - spawn fish
-K - remove fishes
-Z - reset camera angle
-F1 - toggle seperation radius
-F2 - toggle alignment radius
-F3 - toggle cohesion radius
+- WASD: movement
+- Mouse: move camera
+- B: spawn fish
+- K: remove fishes
+- Z: reset camera angle
+- F1: toggle seperation radius
+- F2: toggle alignment radius
+- F3: toggle cohesion radius
 
 ## Requirement
 - VisualStudio 2022
