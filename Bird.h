@@ -3,19 +3,21 @@
 #include <vector>
 
 struct RaylibConfig {
-	int screenWidth{};
-	int screenHeight{};
-	int screenMarginX{};
-	int screenMarginY{};
+	float containerHeight{};
+	float containerWidth{};
+	float containerDepth{};
+	float MarginX{};
+	float MarginY{};
+	float MarginZ{};
 	float deltaTime{};
 };
 
 struct SimulationConfig {
-	int seperationRadius{};
+	float seperationRadius{};
 	float seperationFactor{};
-	int alignmentRadius{};
+	float alignmentRadius{};
 	float alignmentFactor{};
-	int cohesionRadius{};
+	float cohesionRadius{};
 	float cohesionFactor{};
 	float turnFactor{};
 	float maxSpeed{};
@@ -25,15 +27,17 @@ struct SimulationConfig {
 class Bird
 {
 private:
-	Vector2 m_position{};
-	Vector2 m_velocity{};
+	Vector3 m_position{};
+	Vector3 m_velocity{};
+	Color m_color{};
 	static SimulationConfig m_simulationConfig;
 	static RaylibConfig m_raylibConfig;
 
 public:
-	Bird(Vector2 pos, Vector2 vel);
-	Vector2 getPosition() const;
-	Vector2 getVelocity() const;
+	Bird(Vector3 pos, Vector3 vel, Color col);
+	Vector3 getPosition() const;
+	Vector3 getVelocity() const;
+	Color getColor() const;
 	void update(const std::vector<Bird>& birds);
 	static void setSimulationConfig(SimulationConfig simConfig);
 	static void setRaylibConfig(RaylibConfig raylibConfig);
