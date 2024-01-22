@@ -1,30 +1,30 @@
 #include "raylib.h"
 #include "raymath.h"
-#include "Bird.h"
+#include "Fish.h"
 #include <vector>
 #include <iostream>
 
-SimulationConfig Bird::m_simulationConfig;
-RaylibConfig Bird::m_raylibConfig;
+SimulationConfig Fish::m_simulationConfig;
+RaylibConfig Fish::m_raylibConfig;
 
-Bird::Bird(Vector3 pos, Vector3 vel, Color col) : m_position{ pos }, m_velocity{ vel }, m_color{ col } {};
+Fish::Fish(Vector3 pos, Vector3 vel) : m_position{ pos }, m_velocity{ vel } {};
 
-Vector3 Bird::getPosition() const
+Vector3 Fish::getPosition() const
 {
 	return m_position;
 };
 
-Vector3 Bird::getVelocity() const
+Vector3 Fish::getVelocity() const
 {
 	return m_velocity;
 };
 
-Color Bird::getColor() const
+Color Fish::getColor() const
 {
 	return m_color;
 };
 
-void Bird::update(const std::vector<Bird>& birds)
+void Fish::update(const std::vector<Fish>& fishes)
 {
 	Vector3 closeVel{ 0.0, 0.0 };
 	Vector3 neighborAvgVel{ 0.0, 0.0 };
@@ -32,7 +32,7 @@ void Bird::update(const std::vector<Bird>& birds)
 	int alignmentNeighbors = 0;
 	int cohesionNeighbors = 0;
 
-	for (const Bird& other : birds)
+	for (const Fish& other : fishes)
 	{
 		if (&other == this) continue;
 		Vector3 otherPosition = other.getPosition();
@@ -134,12 +134,12 @@ void Bird::update(const std::vector<Bird>& birds)
 	m_position.z += m_velocity.z * m_raylibConfig.deltaTime;
 };
 
-void Bird::setSimulationConfig(SimulationConfig simConfig)
+void Fish::setSimulationConfig(SimulationConfig simConfig)
 {
 	m_simulationConfig = simConfig;
 };
 
-void Bird::setRaylibConfig(RaylibConfig raylibConfig)
+void Fish::setRaylibConfig(RaylibConfig raylibConfig)
 {
 	m_raylibConfig = raylibConfig;
 }

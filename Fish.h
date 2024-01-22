@@ -24,7 +24,7 @@ struct SimulationConfig {
 	float minSpeed{};
 };
 
-class Bird
+class Fish
 {
 private:
 	Vector3 m_position{};
@@ -34,11 +34,11 @@ private:
 	static RaylibConfig m_raylibConfig;
 
 public:
-	Bird(Vector3 pos, Vector3 vel, Color col);
+	Fish(Vector3 pos, Vector3 vel);
 	Vector3 getPosition() const;
 	Vector3 getVelocity() const;
 	Color getColor() const;
-	void update(const std::vector<Bird>& birds);
+	void update(const std::vector<Fish>& birds);
 	static void setSimulationConfig(SimulationConfig simConfig);
 	static void setRaylibConfig(RaylibConfig raylibConfig);
 };
